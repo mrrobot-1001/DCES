@@ -1,4 +1,3 @@
-// src/pages/ScanPage.js
 import React, { useState, useEffect } from 'react';
 import { QrReader } from 'react-qr-reader';
 
@@ -6,6 +5,7 @@ const ScanPage = () => {
   const [qrData, setQrData] = useState(null);
   const [isScanned, setIsScanned] = useState(false);
   const [totalScanned, setTotalScanned] = useState(0);
+
   useEffect(() => {
     // Cleanup function to stop the camera stream when component is unmounted
     return () => {
@@ -17,6 +17,7 @@ const ScanPage = () => {
       }
     };
   }, []); // Runs only on unmount
+
   // Function to handle QR code scan
   const handleScan = (data) => {
     if (data) {
@@ -46,6 +47,7 @@ const ScanPage = () => {
       <div className="flex flex-col items-center">
         <div className="w-full max-w-md">
           <QrReader
+            constraints={{ facingMode: 'environment' }} // Ensures the back camera is used
             onResult={(result, error) => {
               if (!!result) {
                 handleScan(result?.text);
