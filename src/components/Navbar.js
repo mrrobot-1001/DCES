@@ -20,6 +20,13 @@ const Navbar = () => {
         
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-6">
+        <NavLink 
+            to="/" 
+            className="text-white hover:text-gray-200 transition-colors duration-200"
+            activeClassName="font-semibold border-b-2 border-white"
+          >
+            Home
+          </NavLink>
           <NavLink 
             to="/scan" 
             className="text-white hover:text-gray-200 transition-colors duration-200"
